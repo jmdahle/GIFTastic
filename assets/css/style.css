@@ -1,0 +1,16 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-right: 3px;
+}
+
+img {
+    border: 3px solid white;
+}
+img:hover {
+    border: 3px solid blue;
+}
