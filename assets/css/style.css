@@ -8,9 +8,34 @@
     margin-right: 3px;
 }
 
-img {
+#headwindow {
+    background-color: white;
+    padding-bottom: 5px;
+}
+
+#controlwindow {
+    position: fixed;
+    padding: 5px;
+    right: 5px;
+    top: 120px;
+    border: 1px solid grey;
+    background-color: lightgrey;
+}
+
+img[state="off"] {
     border: 3px solid white;
 }
-img:hover {
+img[state="on"] {
+    border: 3px solid green;
+}
+img#search:hover {
     border: 3px solid blue;
+}
+
+@media screen and (max-width: 767px) {
+    #controlwindow {
+        position: static;
+        border: 1px solid grey;
+        background-color: lightgrey;
+    }
 }

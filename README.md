@@ -10,4 +10,8 @@
 1. Uses GIPHY.com API to return animated GIF images based on the selected search term.
 2. When adding additional GIF, uses indexed search to return additional images.  Also continues to add images from column after the final image was placed.
 3. New topic is prevented from being a duplicate.
+4. Border changes to GREEN for a GIF that is playing, returns to WHITE when it is stopped (BLUE on hover).
+5. Uses a sticky header so the search buttons stay on top
+6. Uses Bootstrap and JQuery technologies
+
 

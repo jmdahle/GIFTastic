@@ -1,7 +1,6 @@
 // global variables
 APIKey = "bBMi6wGJpfD3ADkUakOfv5anBDNAOYAi";
 APIUrl = "https://api.giphy.com/v1/gifs/search";
-// topics = ["pug","sloth","spider"];
 topics = ["wierd","bizarre", "crazy", "nutty", "amazing","scary", "creepy", "odd", "wtf"];
 currentTopic = "";
 numberDisplayed = 0; // number gifs currently displayed
@@ -29,6 +28,7 @@ function addGifs(gifArray) {
         newGif.attr("src",gifArray[i].images.fixed_width_still.url);
         newGif.attr("alt","gif");
         newGif.attr("altsrc",gifArray[i].images.fixed_width.url)
+        newGif.attr("state","off");
         newGif.on("click",toggleGif);
         newRating.html("Rating: " + gifArray[i].rating);
         $(newDiv).append(newGif);
@@ -46,6 +46,11 @@ function addGifs(gifArray) {
 }
 
 function toggleGif() {
+    if ($(this).attr("state") === "off") {
+        $(this).attr("state","on");
+    } else {
+        $(this).attr("state","off");
+    }
     srcCurrent = $(this).attr("src");
     srcReplace = $(this).attr("altsrc");
     $(this).attr("src", srcReplace);
@@ -87,9 +92,9 @@ $(document).ready(function () {
     $("#btnAddMore").hide();
 
     $("#newTopicBtn").on("click", function () {
-        // don't add a duplicate
-        if (topics.indexOf($("#newTopic").val().toLowerCase()) === -1) {
-            topics.push($("#newTopic").val().toLowerCase());
+        // don't add a duplicate or zero length string
+        if ((topics.indexOf($("#newTopic").val().trim().toLowerCase()) === -1) && ($("#newTopic").val().trim().toLowerCase().length > 0)) {
+            topics.push($("#newTopic").val().trim().toLowerCase());
             $("#newTopic").val("")
             $("#newTopic").focus();
             topicBtns();
